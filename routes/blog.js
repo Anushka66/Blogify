@@ -30,8 +30,6 @@ router.get("/:id", async (req, res) => {
     return res.render("blog", { user: req.user, blog, comments })
 });
 
-router.get("")
-
 router.post('/comment/:blogId',async(req,res)=>{
     await Comment.create({
          content: req.body.content,
@@ -50,6 +48,15 @@ router.post("/", upload.single("coverImage"), async (req, res) => {
         coverImageURL: `/uploads/${req.file.filename}`
     });
     return res.redirect(`/blog/${blog._id}`);
+});
+
+router.post("/delete/:id", async(req,res)=>{
+   try {
+      await Blog.findByIdAndDelete(req.params.id);
+      return res.redirect("/", {user: req.user});
+   } catch (error) {
+    console.log(erroe);
+   }
 });
 
 module.exports = router;

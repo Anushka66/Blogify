@@ -12,6 +12,11 @@
         <img src="<%= blog.coverImageURL %>" width="700px"/>
         <pre class="mt-3"><%= blog.body %></pre>
     </div>
+    <% if(locals.user){ %>
+        <% if(user._id===blog.createdBy._id){ %>
+            <a href="/blog/delete/<%= blog._id %>" class="btn btn-danger">Delete</a>
+            <% } %>
+        <% } %>
     <div class="container mt-4">
         <img src="<%= blog.createdBy.profileImage %>" width="50px" border-radius> <%= blog.createdBy.name %>
     </div>
