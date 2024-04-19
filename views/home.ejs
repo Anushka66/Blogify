@@ -2,15 +2,16 @@
 <html lang="en">
 <head>
     <%- include("./partials/head.ejs") %>
-    <title>Home Page</title>
+    <title>Home | DarkRooms</title>
 </head>
 <body>
     <%- include('./partials/navbar.ejs') %>
  
-    <div class="container mt-3 row row-cols-4">
-        <% blogs.forEach(element => { %>
+    <div class="container mt-3">
+        <div class="row row-cols-4 g-3">
+          <% blogs.forEach(element => { %>
             <div class="col" >
-              <div class="card col" style="width: 18rem;">
+              <div class="card" style="width: 18rem;">
                 <img src="<%= element.coverImageURL %>" class="card-img-top" width="300px" height="300px">
                 <div class="card-body">
                   <h5 class="card-title"><%= element.title%></h5>
@@ -19,6 +20,7 @@
               </div>
             </div>
         <% }); %>
+        </div>
     </div>
 
     <%- include('./partials/scripts.ejs') %>

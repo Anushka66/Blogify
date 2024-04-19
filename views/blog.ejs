@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <%- include("./partials/head.ejs") %>
-    <title>Blog</title>
+    <title>Blog | DarkRooms</title>
 </head>
 <body>
     <%- include('./partials/navbar.ejs') %>
@@ -27,7 +27,7 @@
             <div class="mt-3">
                 <% comments.forEach(comment => { %>
                     <div>
-                        <img src="<%= comment.createdBy.profileImage %>" width="30px" class="img-fluid rounded-circle"><%= comment.createdBy.name %>
+                        <img src="<%= comment.createdBy.profileImage %>" width="30px" class="img-fluid rounded-circle"><b><%= comment.createdBy.name %></b>
                         <pre><%= comment.content %></pre>
                     </div>
                 <%}); %>

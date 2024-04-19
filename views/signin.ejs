@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
     <%- include("./partials/head.ejs") %>
-    <title>Signin</title>
+    <title>Signin | DarkRooms</title>
 </head>
 <body>
     <%- include('./partials/navbar.ejs') %>
     <div class="container mt-4">
-        <form action="/user/signin" method="post">
+        <form action="/user/signin" method="post" autocomplete="off">
             <div class="form-group">
               <label for="email">Email address</label>
               <input type="email" class="form-control" name="email" id="email" aria-describedby="email" placeholder="Enter email">
