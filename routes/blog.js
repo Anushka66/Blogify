@@ -40,14 +40,18 @@ router.post('/comment/:blogId', async (req, res) => {
 });
 
 router.post("/", upload.single("coverImage"), async (req, res) => {
-    const { title, body } = req.body;
-    const blog = await Blog.create({
+    try {
+        const { title, body } = req.body;
+        const blog = await Blog.create({
         body,
         title,
         createdBy: req.user._id,
         coverImageURL: `/uploads/${req.file.filename}`
     });
     return res.redirect(`/blog/${blog._id}`);
+    } catch (error) {
+        console.log(error);
+    }
 });
 
 router.post("/delete/:id", async (req, res) => {
